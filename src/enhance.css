@@ -1,0 +1,75 @@
+/* Melhorias de legibilidade, navegação previsível e animações suaves. */
+body{font-size:1.0625rem;line-height:1.7}
+.eyebrow,.edition,.section-meta,.scroll-link,.page-index,.service-top,.brand-line,.service-app aside button span,footer,.rights-tabs button span{font-size:.85rem!important;letter-spacing:.2px!important}
+.editorial,.hero-title,h3,.law-title{letter-spacing:-.01em!important}
+.section-meta{font-weight:600}.hero-intro>p{font-size:1.15rem;max-width:520px}
+button,a,summary{transition:background-color .25s,color .25s,transform .25s,box-shadow .25s,border-color .25s}
+:focus-visible{outline:4px solid var(--accent);outline-offset:4px}
+nav a{padding:8px 4px;border-bottom:3px solid transparent}nav a[aria-current=true]{border-color:var(--accent);color:var(--accent);font-weight:700}
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:5px;z-index:40;background:var(--accent);transform-origin:left;transform:scaleX(var(--p,0))}
+.hint-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:14px 4.2%;background:var(--surface);border-bottom:1px solid var(--line);animation:slideDown .6s ease both}
+.hint-bar p{font-weight:600}.hint-bar div{display:flex;flex-wrap:wrap;gap:10px}
+.hint-bar button{border:2px solid var(--accent);border-radius:30px;padding:10px 18px;min-height:44px;font-weight:600}
+.hint-bar button:hover{background:var(--accent);color:var(--bg);transform:translateY(-2px)}.hint-bar .hint-close{border-color:var(--line);font-weight:400}
+.quick{background:var(--bg)}.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-top:40px}
+.quick-card{display:flex;align-items:center;gap:16px;text-align:left;padding:22px;border:2px solid var(--line);border-radius:18px;background:var(--surface);min-height:104px}
+.quick-card:hover,.quick-card:focus-visible{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 12px 24px #174a8322}
+.quick-card:active{transform:translateY(-1px) scale(.99)}
+.quick-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--accent);color:var(--bg);flex-shrink:0;transition:transform .35s}
+.quick-card:hover .quick-icon{transform:rotate(-6deg) scale(1.08)}
+.quick-text{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}.quick-text strong{font-size:1.15rem}.quick-text small{font-size:.95rem;color:var(--muted);line-height:1.5}
+.quick-card>svg{color:var(--accent);transition:transform .25s}.quick-card:hover>svg{transform:translate(4px,-4px)}
+.quick-search{margin-top:40px;max-width:720px}.quick-search label{display:block;font-weight:600;margin-bottom:10px}
+.quick-search div{display:flex;gap:12px;flex-wrap:wrap}.quick-search input{flex:1;min-width:220px;min-height:56px;padding:0 18px;border:2px solid var(--muted);border-radius:14px;background:var(--bg);color:var(--text);font-size:1rem}
+.quick-search .primary{border-radius:14px;gap:10px}
+.how-steps{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.how-steps li{display:flex;align-items:center;gap:14px;font-weight:600}.how-steps b{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--yellow);color:#172B45}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.chips span{font-weight:600;align-self:center}
+.chips button{border:2px solid var(--line);border-radius:30px;padding:8px 18px;min-height:44px;background:var(--bg)}.chips button:hover{border-color:var(--accent);background:var(--accent);color:var(--bg);transform:translateY(-2px)}
+.law-summary:hover,.case-item summary:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.law-summary svg,.case-item summary svg{transition:transform .3s}.law-summary[aria-expanded=true] svg{transform:rotate(180deg)}
+.progress{display:flex;gap:8px;margin-bottom:26px}.progress i{flex:1;height:8px;border-radius:8px;background:var(--line);transition:background-color .5s}.progress i.on{background:var(--accent);animation:grow .6s ease both;transform-origin:left}
+.primary{border-radius:14px}.primary:hover{transform:translateY(-3px);box-shadow:0 10px 20px #174a8333}.primary:hover svg{transform:translate(3px,-3px)}.primary svg{transition:transform .25s}
+.rights-tabs button:hover:not([aria-selected=true]){background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.chapter-panel,.service-main{animation:fadeUp .55s ease both}.law-detail,.case-content{animation:fadeUp .45s ease both}
+.orbit-one{animation:drift 16s ease-in-out infinite alternate}.orbit-three{animation:drift 20s ease-in-out infinite alternate-reverse}.star{animation:bob 6s ease-in-out infinite}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes drift{from{translate:0 0}to{translate:0 -10px}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+
+.hint-bar button[aria-pressed=true]{background:var(--accent);color:var(--bg)}
+.hint-bar button[aria-pressed=true]:before{content:'✓ '}
+.hint-fab{position:fixed;left:16px;bottom:16px;z-index:15;display:flex;align-items:center;gap:10px;padding:12px 20px;min-height:48px;border-radius:30px;background:var(--accent);color:var(--bg);font-weight:600;box-shadow:0 8px 20px #0003;animation:fadeUp .4s ease both}
+.hint-fab:hover{transform:translateY(-3px)}
+
+.sculpture{width:min(32vw,400px)!important;height:min(42vw,520px)!important;right:4vw!important;opacity:1!important}
+.ribbon{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 14px 18px #172b4433);animation:bob 8s ease-in-out infinite alternate}
+@media(max-width:650px){.sculpture{width:46vw!important;height:60vw!important;right:2vw!important}}
+
+.sculpture{width:min(40vw,520px)!important;height:min(52vw,660px)!important;right:3vw!important;top:10px!important}
+.ribbon{filter:drop-shadow(0 16px 20px #172b4433)}
+@media(min-width:651px){.hero-content{min-height:730px!important}}
+@media(max-width:650px){.sculpture{width:58vw!important;height:76vw!important}}
+
+/* Paleta inspirada na fita do autismo: vermelho, amarelo, azul e verde-azulado. */
+:root{--red:#D8232A;--yellow:#F3C614;--blue:#1F3C9C;--teal:#2A9D8F;--coral:#D8232A;--teal-dk:#1E7F75}
+[data-theme=light]{--accent:#1F3C9C}
+.scroll-progress{background:linear-gradient(90deg,#D8232A,#F3C614,#1F3C9C,#2A9D8F)}
+.section-meta{border-bottom-width:5px;border-bottom-style:solid;border-image:linear-gradient(90deg,#D8232A 0 25%,#F3C614 0 50%,#1F3C9C 0 75%,#2A9D8F 0) 1}
+footer{border-top:5px solid;border-image:linear-gradient(90deg,#D8232A 0 25%,#F3C614 0 50%,#1F3C9C 0 75%,#2A9D8F 0) 1}
+.quick-card:nth-child(4n+1) .quick-icon{background:var(--red);color:#fff}
+.quick-card:nth-child(4n+2) .quick-icon{background:var(--yellow);color:#172B45}
+.quick-card:nth-child(4n+3) .quick-icon{background:#1F3C9C;color:#fff}
+.quick-card:nth-child(4n) .quick-icon{background:var(--teal-dk);color:#fff}
+.how-steps li:nth-child(1) b{background:var(--red);color:#fff}.how-steps li:nth-child(3) b{background:var(--teal-dk);color:#fff}
+.progress i.on:nth-child(1){background:var(--red)}.progress i.on:nth-child(2){background:var(--yellow)}.progress i.on:nth-child(3){background:var(--teal-dk)}
+.chips button:nth-of-type(4n+1){border-color:var(--red)}.chips button:nth-of-type(4n+2){border-color:var(--yellow)}.chips button:nth-of-type(4n+3){border-color:#1F3C9C}.chips button:nth-of-type(4n){border-color:var(--teal)}
+.review-banner{border-left-color:var(--yellow)}.chapter-visual:after{background:var(--yellow)}
+.section-pad,.hero{position:relative;isolation:isolate}.section-pad{overflow:hidden}
+.puzzles{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.puzzle{position:absolute;display:block;opacity:.88}
+.puzzle svg{width:100%;height:100%;overflow:visible;animation:drift 10s ease-in-out infinite alternate;filter:drop-shadow(0 6px 8px #172b4422)}
+[data-stimuli=true] .puzzles{display:none}[data-contrast=true] .puzzles{opacity:.45}
+@media(max-width:650px){.puzzle:nth-child(n+3){display:none}.puzzle{transform-origin:center}}
